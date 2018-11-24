@@ -26,7 +26,11 @@
       }
       body {
         margin: 0;
-        scroll-snap-type: y mandatory;
+      }
+      @media screen and (min-width: 720px) {
+        body {
+          scroll-snap-type: y mandatory;
+        }
       }
       img {
         max-width: 100%;
@@ -37,12 +41,12 @@
         align-items: center;
         justify-content: center;
         padding: 32px 32px 0 32px;
-        scroll-snap-align: start;
       }
       @media screen and (min-width: 720px) {
         .shot-wrapper {
           padding: 64px;
           height: 100vh;
+          scroll-snap-align: start;
         }
       }
       @media screen and (max-width: 720px) {
