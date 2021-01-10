@@ -41,23 +41,37 @@
       img {
         max-width: 100%;
         max-height: 100%;
+        display: block;
       }
-      .shot-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 32px 32px 0 32px;
+      .shots-wrapper {
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+        align-items: end;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
       }
       @media screen and (min-width: 720px) {
         .shot-wrapper {
-          padding: 64px;
-          height: 100vh;
           scroll-snap-align: start;
+          
+        }
+        .shot-wrapper:nth-child(3n)  {
+          grid-column: 2/4;
+        }
+        .shot-wrapper:nth-child(3n + 1)  {
+          grid-column: 2/5;
+        }
+        .shot-wrapper:nth-child(3n + 2)  {
+          grid-column: 1/4;
+        }
+        .shot-wrapper:nth-child(4n + 2)  {
+          grid-column: 1/2;
         }
       }
       @media screen and (max-width: 720px) {
         .shots-wrapper {
-          padding-bottom: 32px;
+          padding-bottom: 1rem;
         }
       }
     </style>
