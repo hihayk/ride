@@ -32,6 +32,8 @@
       }
       body {
         margin: 0;
+        padding: 1rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       }
       @media screen and (min-width: 720px) {
         body {
@@ -43,18 +45,24 @@
         max-height: 100%;
         display: block;
       }
+      a {
+        color: inherit;
+      }
       .shots-wrapper {
         display: grid;
         gap: 1rem;
-        padding: 1rem;
         align-items: end;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
       }
       @media screen and (min-width: 720px) {
+        .shots-wrapper {
+          gap: 1rem;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
         .shot-wrapper {
           scroll-snap-align: start;
-          
         }
         .shot-wrapper:nth-child(3n)  {
           grid-column: 2/4;
@@ -77,6 +85,11 @@
     </style>
   </head>
   <body>
+    <div>
+      <b>Ride</b>
+      <br />
+      / <a href="https://www.youtube.com/channel/UCTYgfcj46qIidyGfuqhjQvw">Youtube channel</a>
+    </div>
     <div class="shots-wrapper"></div>
   </body>
 
@@ -102,6 +115,7 @@
       "IMG_20180923_164112.jpg",
       "IMG_20180609_151529.jpg",
       "IMG_20180923_182256.jpg",
+      "IMG_20200202_132837.jpg",
       "IMG_20190319_130445.jpg",
       "IMG_20180609_155347.jpg",
       "IMG_20181025_214200.jpg",
