@@ -1,199 +1,212 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ride</title>
-    <meta name="description" content="ride" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:image" content="shot.png" />
-    <meta name="twitter:image" content="shot.png" />
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-125822046-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>ride</title>
+  <meta name="description" content="ride" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:image" content="shot.png" />
+  <meta name="twitter:image" content="shot.png" />
 
-      gtag("config", "UA-125822046-1");
-    </script>
-
-    <style>
-      *,
-      *:before,
-      *:after {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        padding: 1rem;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      }
-      @media screen and (min-width: 720px) {
-        body {
-          scroll-snap-type: y mandatory;
-        }
-      }
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        display: block;
-      }
-      a {
-        color: inherit;
-        text-underline-position: under;
-      }
-      .shots-wrapper {
-        display: grid;
-        gap: 1rem;
-        align-items: end;
-        display: grid;
-        grid-template-columns: 1fr;
-        margin-top: 2rem;
-      }
-      @media screen and (min-width: 720px) {
-        .shots-wrapper {
-          gap: 1rem;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
-        .shot-wrapper {
-          scroll-snap-align: start;
-        }
-        .shot-wrapper:nth-child(3n)  {
-          grid-column: 2/4;
-        }
-        .shot-wrapper:nth-child(3n + 1)  {
-          grid-column: 2/5;
-        }
-        .shot-wrapper:nth-child(3n + 2)  {
-          grid-column: 1/4;
-        }
-        .shot-wrapper:nth-child(4n + 2)  {
-          grid-column: 1/2;
-        }
-      }
-      @media screen and (max-width: 720px) {
-        .shots-wrapper {
-          padding-bottom: 1rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <div>
-        <svg width="22" height="51" viewBox="0 0 22 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11 0V50" stroke="black"/>
-          <path d="M1 40L11 50L21 40" stroke="black"/>
-        </svg>
-      </div>
-      <a href="https://www.youtube.com/channel/UCTYgfcj46qIidyGfuqhjQvw">videos</a>
-    </div>
-    <div class="shots-wrapper"></div>
-  </body>
-
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125822046-1"></script>
   <script>
-    const shotsWrapper = document.querySelector(".shots-wrapper");
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    const imagesSources = [
-      "mash.jpg",
-      "IMG_1272.jpg",      
-      'AF89E407A645086C590BDB22F1A37C6D.JPG',
-      'IMG_20200808_125006.jpg',
-      'AF89E407A645086C590BDB22F1A37C6D2.jpg',
-      'IMG_20200901_130727.jpg',
-      'IMG_20200902_105414.jpg',
-      'IMG_1130.jpg',
-      'IMG_1139.jpg',
-      'IMG_20200902_111328.jpg',
-      'IMG_20200808_124129.jpg',
-      "IMG_20200903_134925.jpg",
-      "IMG_20200903_155041.jpg",
-      "IMG_20200105_172419.jpg",
-      "IMG_20200903_152856.jpg",
-      "IMG_20190709_194428.jpg",
-      "IMG_20190709_190302.jpg",
-      'IMG_20190707_130751.jpg',
-      'IMG_20190709_193008.jpg',
-      'IMG_20190709_200020.jpg',
-      'IMG_20190707_115019.jpg',
-      "IMG_20180918_202408.jpg",
-      "IMG_20181228_172429.jpg",
-      "IMG_20190728_174447.jpg",
-      "IMG-20190508-WA0007.jpg",
-      "IMG_20180923_175850.jpg",
-      "IMG_20190228_102439.jpg",
-      "IMG_20200903_120828.jpg",
-      "IMG_20180923_164112.jpg",
-      "IMG_20180609_151529.jpg",
-      "IMG_20180923_182256.jpg",
-      "IMG_20200202_132837.jpg",
-      "IMG_20190319_130445.jpg",
-      "IMG_20180609_155347.jpg",
-      "IMG_20181025_214200.jpg",
-      "IMG_20190322_114144.jpg",
-      "IMG_20180814_141709.jpg",
-      "IMG_20181108_094148.jpg",
-      "IMG_20190502_102915.jpg",
-      "IMG_20180814_151709.jpg",
-      "IMG_20181208_160108.jpg",
-      "IMG_20190706_120931.jpg",
-      "IMG_20180814_160609.jpg",
-      "IMG_20190303_114946.jpg",
-      "IMG_20190303_112751.jpg",
-      "IMG_20190303_113753.jpg",
-      "IMG_20190228_094819.jpg",
-      "IMG_20190312_114502.jpg",
-      "IMG_20181230_154843.jpg",
-      "IMG_20181230_161125.jpg",
-      "IMG_20181230_160337-(1).jpg",
-      "IMG_20190109_151816.jpg",
-      "IMG_20190109_160036.jpg",
-      "IMG_20181006_131853.jpg",
-      "IMG_20181006_132021.jpg",
-      "IMG_20180914_113448.jpg",
-      "IMG_20181005_132518.jpg",
-      "IMG_20181006_122419.jpg",
-      "IMG_20180914_125439.jpg",
-      "IMG_20180924_134206.jpg",
-      "IMG_20180914_135309.jpg",
-      "IMG_20180924_125817.jpg",
-      "IMG_20180914_111244.jpg",
-      "IMG_20180914_113220.jpg",
-      "IMG_20180914_140104.jpg",
-      "IMG_20180914_1254392.jpg",
-      "002933.jpg",
-      "IMG_20180911_193704.jpg",
-      "IMG_20180912_154321.jpg",
-      "IMG_20180912_150148.jpg",
-      "IMG_20180912_124925.jpg",
-      "IMG_20180912_132613.jpg",
-      "IMG_20180912_125734.jpg",
-      "IMG_20180912_133130.jpg",
-      "IMG_20180912_140046.jpg",
-      "IMG_20180912_165352.jpg",
-      "IMG_20180912_135134.jpg",
-      "IMG_20180912_163422.jpg",
-      "IMG_20180912_125220.jpg",
-      "IMG_20180912_162706.jpg",
-      "cmndr.jpg",
-      "road.jpg",
-    ];
+    gtag("config", "UA-125822046-1");
+  </script>
 
-    shotsWrapper.innerHTML = imagesSources
-      .map(
-        (imagesSource) => `
+  <style>
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    @media screen and (min-width: 720px) {
+      body {
+        scroll-snap-type: y mandatory;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-underline-position: under;
+    }
+
+    .shots-wrapper {
+      display: grid;
+      gap: 1rem;
+      align-items: end;
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 2rem;
+    }
+
+    @media screen and (min-width: 720px) {
+      .shots-wrapper {
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+
+      .shot-wrapper {
+        scroll-snap-align: start;
+      }
+
+      .shot-wrapper:nth-child(3n) {
+        grid-column: 2/4;
+      }
+
+      .shot-wrapper:nth-child(3n + 1) {
+        grid-column: 2/5;
+      }
+
+      .shot-wrapper:nth-child(3n + 2) {
+        grid-column: 1/4;
+      }
+
+      .shot-wrapper:nth-child(4n + 2) {
+        grid-column: 1/2;
+      }
+    }
+
+    @media screen and (max-width: 720px) {
+      .shots-wrapper {
+        padding-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div>
+      <svg width="22" height="51" viewBox="0 0 22 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 0V50" stroke="black" />
+        <path d="M1 40L11 50L21 40" stroke="black" />
+      </svg>
+    </div>
+    <a href="https://www.youtube.com/channel/UCTYgfcj46qIidyGfuqhjQvw">videos</a>
+  </div>
+  <div class="shots-wrapper"></div>
+</body>
+
+<script>
+  const shotsWrapper = document.querySelector(".shots-wrapper");
+
+  const imagesSources = [
+    "IMG_0939.jpg",
+    "mash.jpg",
+    "IMG_1272.jpg",
+    'AF89E407A645086C590BDB22F1A37C6D.JPG',
+    'IMG_20200808_125006.jpg',
+    'AF89E407A645086C590BDB22F1A37C6D2.jpg',
+    'IMG_20200901_130727.jpg',
+    'IMG_20200902_105414.jpg',
+    'IMG_1130.jpg',
+    'IMG_1139.jpg',
+    'IMG_20200902_111328.jpg',
+    'IMG_20200808_124129.jpg',
+    "IMG_20200903_134925.jpg",
+    "IMG_20200903_155041.jpg",
+    "IMG_20200105_172419.jpg",
+    "IMG_20200903_152856.jpg",
+    "IMG_20190709_194428.jpg",
+    "IMG_20190709_190302.jpg",
+    'IMG_20190707_130751.jpg',
+    'IMG_20190709_193008.jpg',
+    'IMG_20190709_200020.jpg',
+    'IMG_20190707_115019.jpg',
+    "IMG_20180918_202408.jpg",
+    "IMG_20181228_172429.jpg",
+    "IMG_20190728_174447.jpg",
+    "IMG-20190508-WA0007.jpg",
+    "IMG_20180923_175850.jpg",
+    "IMG_20190228_102439.jpg",
+    "IMG_20200903_120828.jpg",
+    "IMG_20180923_164112.jpg",
+    "IMG_20180609_151529.jpg",
+    "IMG_20180923_182256.jpg",
+    "IMG_20200202_132837.jpg",
+    "IMG_20190319_130445.jpg",
+    "IMG_20180609_155347.jpg",
+    "IMG_20181025_214200.jpg",
+    "IMG_20190322_114144.jpg",
+    "IMG_20180814_141709.jpg",
+    "IMG_20181108_094148.jpg",
+    "IMG_20190502_102915.jpg",
+    "IMG_20180814_151709.jpg",
+    "IMG_20181208_160108.jpg",
+    "IMG_20190706_120931.jpg",
+    "IMG_20180814_160609.jpg",
+    "IMG_20190303_114946.jpg",
+    "IMG_20190303_112751.jpg",
+    "IMG_20190303_113753.jpg",
+    "IMG_20190228_094819.jpg",
+    "IMG_20190312_114502.jpg",
+    "IMG_20181230_154843.jpg",
+    "IMG_20181230_161125.jpg",
+    "IMG_20181230_160337-(1).jpg",
+    "IMG_20190109_151816.jpg",
+    "IMG_20190109_160036.jpg",
+    "IMG_20181006_131853.jpg",
+    "IMG_20181006_132021.jpg",
+    "IMG_20180914_113448.jpg",
+    "IMG_20181005_132518.jpg",
+    "IMG_20181006_122419.jpg",
+    "IMG_20180914_125439.jpg",
+    "IMG_20180924_134206.jpg",
+    "IMG_20180914_135309.jpg",
+    "IMG_20180924_125817.jpg",
+    "IMG_20180914_111244.jpg",
+    "IMG_20180914_113220.jpg",
+    "IMG_20180914_140104.jpg",
+    "IMG_20180914_1254392.jpg",
+    "002933.jpg",
+    "IMG_20180911_193704.jpg",
+    "IMG_20180912_154321.jpg",
+    "IMG_20180912_150148.jpg",
+    "IMG_20180912_124925.jpg",
+    "IMG_20180912_132613.jpg",
+    "IMG_20180912_125734.jpg",
+    "IMG_20180912_133130.jpg",
+    "IMG_20180912_140046.jpg",
+    "IMG_20180912_165352.jpg",
+    "IMG_20180912_135134.jpg",
+    "IMG_20180912_163422.jpg",
+    "IMG_20180912_125220.jpg",
+    "IMG_20180912_162706.jpg",
+    "cmndr.jpg",
+    "road.jpg",
+  ];
+
+  shotsWrapper.innerHTML = imagesSources
+    .map(
+      (imagesSource) => `
         <div class="shot-wrapper">
           <img class="shot-image" src="images/${imagesSource}" />
         </div>
       `
-      )
-      .join("");
-  </script>
+    )
+    .join("");
+</script>
+
 </html>
